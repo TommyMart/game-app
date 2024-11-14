@@ -25,7 +25,7 @@ function App() {
       <Button color="success" onClick={() => setAlertVisible(true)}>
         Click Me!
       </Button> */}
-      <Like />
+      <Like onClick={() => console.log("clicked")} />
     </div>
   );
 }

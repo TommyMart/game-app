@@ -1,15 +1,23 @@
 import { useState } from "react";
-import { CiHeart } from "react-icons/ci";
 import { GoHeart } from "react-icons/go";
 import { GoHeartFill } from "react-icons/go";
 
-const Like = () => {
+interface Props {
+  onClick: () => void;
+}
+
+const Like = ({ onClick }: Props) => {
   const [like, setLike] = useState(false);
 
+  const toggle = () => {
+    setLike(!like);
+    onClick();
+  };
+
   if (like) {
-    return <GoHeart onClick={() => setLike(false)} />;
+    return <GoHeart onClick={toggle} />;
   } else {
-    return <GoHeartFill onClick={() => setLike(true)} />;
+    return <GoHeartFill onClick={toggle} />;
   }
 };
 
